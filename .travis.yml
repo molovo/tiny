@@ -1,7 +1,7 @@
 language: crystal
 
 script:
-  - crystal spec
+  # - crystal spec
   - crystal doc
 
 deploy:
