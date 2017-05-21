@@ -1,0 +1,17 @@
+name: tiny
+version: 0.1.0
+
+dependencies:
+  crayon:
+    github: molovo/crayon
+  herd:
+    github: molovo/herd
+  dotenv:
+    github: gdotdesign/cr-dotenv
+
+authors:
+  - James Dinsdale <hi@molovo.co>
+
+crystal: 0.22.0
+
+license: MIT
