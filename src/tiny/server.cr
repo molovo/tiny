@@ -1,4 +1,3 @@
-require "json"
 require "crayon"
 require "dotenv"
 require "herd"
@@ -6,7 +5,8 @@ require "herd"
 module Tiny
   class Server
     # Configuration values for Tiny's server
-    @config = {
+    @@config = {
+      "HOSTNAME"     => "127.0.0.1",
       "PORT"         => 3000,
       "ALLOW_ORIGIN" => "*",
       "THREADS"      => 1,
@@ -17,18 +17,18 @@ module Tiny
 
     # Create the Tiny server instance
     def initialize(&handler : (Request, Response) -> _)
-      @config = @config.merge Dotenv.load
+      @@config = @@config.merge Dotenv.load
 
-      cluster = Herd::Cluster.new @config["THREADS"].to_i32
+      cluster = Herd::Cluster.new @@config["THREADS"].to_i32
       cluster.execute do
         # Create a new server instance
-        @server = HTTP::Server.new(@config["PORT"].to_i32) do |context|
+        @server = HTTP::Server.new(@@config["HOSTNAME"].to_s, @@config["PORT"].to_i32) do |context|
           # Set up the request and response
           request = Request.new context
           response = Response.new context
 
           # Set the `Access-Control-Allow-Origin` header
-          response.allow_origin @config["ALLOW_ORIGIN"].to_s
+          response.allow_origin @@config["ALLOW_ORIGIN"].to_s
 
           # Run the handler
           handler.call request, response
@@ -84,7 +84,7 @@ module Tiny
       box = Crayon::Box.new [
         crayon.yellow.render("Tiny is listening..."),
         "",
-        "URL: http://127.0.0.1:#{@config["PORT"]}",
+        "URL: http://#{@@config["HOSTNAME"]}:#{@@config["PORT"]}",
       ]
 
       box.set_border_color Crayon::Color::Yellow
