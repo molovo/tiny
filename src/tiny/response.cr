@@ -33,8 +33,7 @@ module Tiny
     #       "rainbows": "unicorns"
     #     }
     def json(object : JSON::Type)
-      @context.response.content_type = "application/json;charset=utf-8"
-      send object.to_json
+      json 200, object
     end
 
     # Send a JSON response with a specific status code
@@ -43,7 +42,7 @@ module Tiny
     #       "error": "Something happened"
     #     }
     def json(code : Int32, object : JSON::Type)
-      @context.response.content_type = "application/json;charset=utf-8"
+      @context.response.content_type = "application/json"
       send code, object.to_json
     end
 
