@@ -1,6 +1,6 @@
 # tiny
 
-A simple wrapper around [HTTP::Server](https://crystal-lang.org/api/0.22.0/HTTP/Server.html) for building CORS-enabled, multi-threaded HTTP micro-services in [Crystal].
+A simple wrapper around [HTTP::Server](https://crystal-lang.org/api/0.22.0/HTTP/Server.html) for building CORS-enabled, multi-threaded HTTP micro-services in [Crystal](https://crystal-lang.org).
 
 ## Installation
 
