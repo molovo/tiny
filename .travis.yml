@@ -1,8 +1,12 @@
 language: crystal
 
-script:
-  # - crystal spec
-  - crystal doc
+jobs:
+  include:
+    - stage: test
+      before_script: mv .env.example .env
+      script: crystal spec
+    - stage: docs
+      script: crystal doc
 
 deploy:
   local_dir: doc
