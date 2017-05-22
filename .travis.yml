@@ -3,7 +3,7 @@ language: crystal
 jobs:
   include:
     - stage: test
-      before_script: cp .env.example .env
+      before_script: cat .env.example | grep -v PORT= > .env
       script: crystal spec
     - stage: docs
       script: crystal doc
