@@ -15,6 +15,11 @@ module Tiny
     # The underlying HTTP::Server instance
     @server : HTTP::Server?
 
+    # Get the current config
+    def self.config
+      @@config
+    end
+
     # Create the Tiny server instance
     def initialize(&handler : (Request, Response) -> _)
       @@config = @@config.merge Dotenv.load
