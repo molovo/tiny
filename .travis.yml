@@ -3,7 +3,7 @@ language: crystal
 jobs:
   include:
     - stage: test
-      before_script: mv .env.example .env
+      before_script: cp .env.example .env
       script: crystal spec
     - stage: docs
       script: crystal doc
