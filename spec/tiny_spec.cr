@@ -10,7 +10,7 @@ describe Tiny do
       end
     end
 
-    sleep 0.01
+    sleep 1
 
     it "responds with 200 for GET request" do
       response = HTTP::Client.get "http://#{Tiny::Server.config["HOSTNAME"]}:#{Tiny::Server.config["PORT"]}"
@@ -34,7 +34,7 @@ describe Tiny do
       end
     end
 
-    sleep 0.01
+    sleep 1
 
     it "responds with 200 for POST request" do
       response = HTTP::Client.post "http://#{Tiny::Server.config["HOSTNAME"]}:#{Tiny::Server.config["PORT"]}"
@@ -60,7 +60,7 @@ describe Tiny do
       end
     end
 
-    sleep 0.01
+    sleep 1
 
     response = HTTP::Client.get "http://#{Tiny::Server.config["HOSTNAME"]}:#{Tiny::Server.config["PORT"]}"
     response.status_code.should eq(200)
@@ -81,7 +81,7 @@ describe Tiny do
       end
     end
 
-    sleep 0.01
+    sleep 1
 
     it "responds with 500 for GET request" do
       response = HTTP::Client.get "http://#{Tiny::Server.config["HOSTNAME"]}:#{Tiny::Server.config["PORT"]}"
@@ -105,7 +105,7 @@ describe Tiny do
       end
     end
 
-    sleep 0.01
+    sleep 1
 
     it "responds with 500 for GET request" do
       response = HTTP::Client.get "http://#{Tiny::Server.config["HOSTNAME"]}:#{Tiny::Server.config["PORT"]}"
