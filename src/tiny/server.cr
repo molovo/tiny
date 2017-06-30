@@ -32,48 +32,59 @@ module Tiny
           request = Request.new context
           response = Response.new context
 
-          # Set the `Access-Control-Allow-Origin` header
-          response.allow_origin @@config["ALLOW_ORIGIN"].to_s
-
           # Run the handler
           handler.call request, response
 
-          # Find the allowed methods
-          allowed_methods = [] of Request::Method
-          Request::Method.values.each do |method|
-            if request.handlers.has_key? method
-              allowed_methods << method
-            end
-          end
+          setup_access_control request, response
 
-          # Set the `Access-Control-Request-Method` header
-          response.request_methods allowed_methods.map { |method|
-            method.to_s.upcase
-          }
-
-          method = Request::Method.parse? request.method
-
-          unless method.nil?
-            # Print an empty response for OPTIONS requests
-            if method.options?
-              next response.send 200
-            end
-
-            # If the request method is allowed, call its handler
-            if request.handlers.has_key? method
-              next handle request.handlers[method], request, response
-            end
-          end
-
-          next response.error 405, "Method Not Allowed"
+          next route_request request, response
         end
 
         listen
       end
     end
 
+    # Set up access control for the request
+    private def setup_access_control(request : Request, response : Response)
+      # Set the `Access-Control-Allow-Origin` header
+      response.allow_origin @@config["ALLOW_ORIGIN"].to_s
+
+      # Find the allowed methods
+      allowed_methods = [] of Request::Method
+      Request::Method.values.each do |method|
+        if request.handlers.has_key? method
+          allowed_methods << method
+        end
+      end
+
+      # Set the `Access-Control-Request-Method` header
+      response.request_methods allowed_methods.map { |method|
+        method.to_s.upcase
+      }
+    end
+
+    # Pass the request to the correct handler
+    private def route_request(request : Request, response : Response)
+      # Get the request method
+      method = Request::Method.parse? request.method
+
+      unless method.nil?
+        # Print an empty response for OPTIONS requests
+        if method.options?
+          return response.send 200
+        end
+
+        # If the request method is allowed, call its handler
+        if request.handlers.has_key? method
+          return handle request.handlers[method], request, response
+        end
+      end
+
+      response.error 405, "Method Not Allowed"
+    end
+
     # Handle an incoming request
-    private def handle(handler, request, response)
+    private def handle(handler, request : Request, response : Response)
       output = handler.call
     rescue ex
       # Handle uncaught exceptions, and return an error message
@@ -83,6 +94,7 @@ module Tiny
       response.error message
     end
 
+    # Start the server and print a message to stdout
     private def listen
       crayon = Crayon::Text.new
 
