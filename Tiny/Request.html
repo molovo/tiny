@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/molovo/tiny">
+  <link href="../css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../js/doc.js"></script>
+  <title>Tiny::Request - github.com/molovo/tiny</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li><a href="../index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class=" " data-id="github.com/molovo/tiny/toplevel" data-name="top level namespace">
+      <a href="../toplevel.html">Top Level Namespace</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="github.com/molovo/tiny/Tiny" data-name="tiny">
+      <a href="../Tiny.html">Tiny</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/molovo/tiny/Tiny/ParamParser" data-name="tiny::paramparser">
+      <a href="../Tiny/ParamParser.html">ParamParser</a>
+      
+    </li>
+  
+  <li class="parent current" data-id="github.com/molovo/tiny/Tiny/Request" data-name="tiny::request">
+      <a href="../Tiny/Request.html">Request</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/molovo/tiny/Tiny/Request/Method" data-name="tiny::request::method">
+      <a href="../Tiny/Request/Method.html">Method</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/molovo/tiny/Tiny/Response" data-name="tiny::response">
+      <a href="../Tiny/Response.html">Response</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/molovo/tiny/Tiny/Server" data-name="tiny::server">
+      <a href="../Tiny/Server.html">Server</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Tiny::Request
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Tiny/Request.html">Tiny::Request</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>Overview</h2>
+
+  <p>A facade which sits in front of <a href="https://crystal-lang.org/api/0.22.0/HTTP/Response.html" target="_blank">HTTP::Request</a>,
+providing a few helper methods. The object is passed into the block of
+Tiny's <code>serve</code> method.</p>
+
+<pre><code>serve <span class="k">do</span> <span class="o">|</span>request, response<span class="o">|</span>
+  <span class="c"># Handle a GET request</span>
+  request.get <span class="k">do</span>
+    <span class="c"># Code here is run only for GET requests...</span>
+  <span class="k">end</span>
+
+  <span class="c"># Handle a POST request</span>
+  request.post <span class="k">do</span>
+    <span class="c"># Code here is run only for POST requests...</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/request.cr#L17" target="_blank">tiny/request.cr</a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>Constructors</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28context%3AHTTP%3A%3AServer%3A%3AContext%29-class-method" class="signature"><strong>.new</strong>(context : HTTP::Server::Context)</a>
+        
+          <div class="summary"><p>Create the request object</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#delete%28%26block%29-instance-method" class="signature"><strong>#delete</strong>(&block)</a>
+        
+          <div class="summary"><p>Specify a block to handle DELETE requests</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get%28%26block%29-instance-method" class="signature"><strong>#get</strong>(&block)</a>
+        
+          <div class="summary"><p>Specify a block to handle GET requests</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#handlers%3AHash%28Tiny%3A%3ARequest%3A%3AMethod%2C-%3ENil%29-instance-method" class="signature"><strong>#handlers</strong> : Hash(Tiny::Request::Method,  -> Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#head%28%26block%29-instance-method" class="signature"><strong>#head</strong>(&block)</a>
+        
+          <div class="summary"><p>Specify a block to handle HEAD requests</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#options%28%26block%29-instance-method" class="signature"><strong>#options</strong>(&block)</a>
+        
+          <div class="summary"><p>Specify a block to handle OPTIONS requests</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#params%3AHash%28String%2CArray%28JSON%3A%3AType%29%7CBool%7CFloat64%7CHash%28String%2CJSON%3A%3AType%29%7CInt64%7CString%7CNil%29-instance-method" class="signature"><strong>#params</strong> : Hash(String, Array(JSON::Type) | Bool | Float64 | Hash(String, JSON::Type) | Int64 | String | Nil)</a>
+        
+          <div class="summary"><p>The request parameters for this request</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#patch%28%26block%29-instance-method" class="signature"><strong>#patch</strong>(&block)</a>
+        
+          <div class="summary"><p>Specify a block to handle PATCH requests</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#post%28%26block%29-instance-method" class="signature"><strong>#post</strong>(&block)</a>
+        
+          <div class="summary"><p>Specify a block to handle POST requests</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#put%28%26block%29-instance-method" class="signature"><strong>#put</strong>(&block)</a>
+        
+          <div class="summary"><p>Specify a block to handle PUT requests</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>Macro Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#method_missing%28call%29-macro" class="signature"><strong>method_missing</strong>(call)</a>
+        
+          <div class="summary"><p>Cascade missing methods down to the server request</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>Constructor Detail</h2>
+  
+    <div class="entry-detail" id="new&#40;context:HTTP::Server::Context&#41;-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(context : HTTP::Server::Context)
+
+        <a class="method-permalink" href="#new%28context%3AHTTP%3A%3AServer%3A%3AContext%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Create the request object</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/request.cr#L48" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="delete&#40;&amp;block&#41;-instance-method">
+      <div class="signature">
+        
+        def <strong>delete</strong>(&block)
+
+        <a class="method-permalink" href="#delete%28%26block%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Specify a block to handle DELETE requests</p>
+
+<pre><code>request.delete <span class="k">do</span>
+  <span class="c"># Code here is run only for DELETE requests...</span>
+<span class="k">end</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/request.cr#L99" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="get&#40;&amp;block&#41;-instance-method">
+      <div class="signature">
+        
+        def <strong>get</strong>(&block)
+
+        <a class="method-permalink" href="#get%28%26block%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Specify a block to handle GET requests</p>
+
+<pre><code>request.get <span class="k">do</span>
+  <span class="c"># Code here is run only for GET requests...</span>
+<span class="k">end</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/request.cr#L63" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="handlers:Hash&#40;Tiny::Request::Method,-&gt;Nil&#41;-instance-method">
+      <div class="signature">
+        
+        def <strong>handlers</strong> : Hash(<a href="../Tiny/Request/Method.html">Tiny::Request::Method</a>,  -> Nil)
+
+        <a class="method-permalink" href="#handlers%3AHash%28Tiny%3A%3ARequest%3A%3AMethod%2C-%3ENil%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/request.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="head&#40;&amp;block&#41;-instance-method">
+      <div class="signature">
+        
+        def <strong>head</strong>(&block)
+
+        <a class="method-permalink" href="#head%28%26block%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Specify a block to handle HEAD requests</p>
+
+<pre><code>request.head <span class="k">do</span>
+  <span class="c"># Code here is run only for HEAD requests...</span>
+<span class="k">end</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/request.cr#L121" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="options&#40;&amp;block&#41;-instance-method">
+      <div class="signature">
+        
+        def <strong>options</strong>(&block)
+
+        <a class="method-permalink" href="#options%28%26block%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Specify a block to handle OPTIONS requests</p>
+
+<pre><code>request.options <span class="k">do</span>
+  <span class="c"># Code here is run only for OPTIONS requests...</span>
+<span class="k">end</span></code></pre>
+
+<p>This is specified automatically by Tiny, in order to
+implement Access Control. If you override the <code><a href="../Tiny/Request.html#options%28%26block%29-instance-method">#options</a></code>
+handler you will need to handle this yourself.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/request.cr#L112" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="params:Hash&#40;String,Array&#40;JSON::Type&#41;|Bool|Float64|Hash&#40;String,JSON::Type&#41;|Int64|String|Nil&#41;-instance-method">
+      <div class="signature">
+        
+        def <strong>params</strong> : Hash(String, Array(JSON::Type) | Bool | Float64 | Hash(String, JSON::Type) | Int64 | String | Nil)
+
+        <a class="method-permalink" href="#params%3AHash%28String%2CArray%28JSON%3A%3AType%29%7CBool%7CFloat64%7CHash%28String%2CJSON%3A%3AType%29%7CInt64%7CString%7CNil%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The request parameters for this request</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/request.cr#L36" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="patch&#40;&amp;block&#41;-instance-method">
+      <div class="signature">
+        
+        def <strong>patch</strong>(&block)
+
+        <a class="method-permalink" href="#patch%28%26block%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Specify a block to handle PATCH requests</p>
+
+<pre><code>request.patch <span class="k">do</span>
+  <span class="c"># Code here is run only for PATCH requests...</span>
+<span class="k">end</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/request.cr#L90" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="post&#40;&amp;block&#41;-instance-method">
+      <div class="signature">
+        
+        def <strong>post</strong>(&block)
+
+        <a class="method-permalink" href="#post%28%26block%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Specify a block to handle POST requests</p>
+
+<pre><code>request.post <span class="k">do</span>
+  <span class="c"># Code here is run only for POST requests...</span>
+<span class="k">end</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/request.cr#L72" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="put&#40;&amp;block&#41;-instance-method">
+      <div class="signature">
+        
+        def <strong>put</strong>(&block)
+
+        <a class="method-permalink" href="#put%28%26block%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Specify a block to handle PUT requests</p>
+
+<pre><code>request.put <span class="k">do</span>
+  <span class="c"># Code here is run only for PUT requests...</span>
+<span class="k">end</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/request.cr#L81" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>Macro Detail</h2>
+  
+    <div class="entry-detail" id="method_missing&#40;call&#41;-macro">
+      <div class="signature">
+        
+        macro <strong>method_missing</strong>(call)
+
+        <a class="method-permalink" href="#method_missing%28call%29-macro">#</a>
+      </div>
+      
+        <div class="doc"><p>Cascade missing methods down to the server request</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/request.cr#L43" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+</div>
+
+</body>
+</html>

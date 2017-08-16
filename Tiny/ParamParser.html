@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/molovo/tiny">
+  <link href="../css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../js/doc.js"></script>
+  <title>Tiny::ParamParser - github.com/molovo/tiny</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li><a href="../index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class=" " data-id="github.com/molovo/tiny/toplevel" data-name="top level namespace">
+      <a href="../toplevel.html">Top Level Namespace</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="github.com/molovo/tiny/Tiny" data-name="tiny">
+      <a href="../Tiny.html">Tiny</a>
+      
+        <ul>
+  
+  <li class=" current" data-id="github.com/molovo/tiny/Tiny/ParamParser" data-name="tiny::paramparser">
+      <a href="../Tiny/ParamParser.html">ParamParser</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/molovo/tiny/Tiny/Request" data-name="tiny::request">
+      <a href="../Tiny/Request.html">Request</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/molovo/tiny/Tiny/Request/Method" data-name="tiny::request::method">
+      <a href="../Tiny/Request/Method.html">Method</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/molovo/tiny/Tiny/Response" data-name="tiny::response">
+      <a href="../Tiny/Response.html">Response</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/molovo/tiny/Tiny/Server" data-name="tiny::server">
+      <a href="../Tiny/Server.html">Server</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Tiny::ParamParser
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Tiny/ParamParser.html">Tiny::ParamParser</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>Overview</h2>
+
+  <p>ParamParser parses the request contents including query_params and body
+and converts them into a params hash which you can within the environment
+context.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/param_parser.cr#L5" target="_blank">tiny/param_parser.cr</a>
+    
+    <br/>
+  
+
+
+
+  
+    <h2>Constant Summary</h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="APPLICATION_JSON">
+        <strong>APPLICATION_JSON</strong> = <code><span class="s">&quot;application/json&quot;</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="MULTIPART_FORM">
+        <strong>MULTIPART_FORM</strong> = <code><span class="s">&quot;multipart/form-data&quot;</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="URL_ENCODED_FORM">
+        <strong>URL_ENCODED_FORM</strong> = <code><span class="s">&quot;application/x-www-form-urlencoded&quot;</span></code>
+      </dt>
+      
+    
+  </dl>
+
+
+
+  <h2>Constructors</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28request%3AHTTP%3A%3ARequest%29-class-method" class="signature"><strong>.new</strong>(request : HTTP::Request)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#body-instance-method" class="signature"><strong>#body</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#files-instance-method" class="signature"><strong>#files</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#json-instance-method" class="signature"><strong>#json</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#query-instance-method" class="signature"><strong>#query</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#url-instance-method" class="signature"><strong>#url</strong></a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>Constructor Detail</h2>
+  
+    <div class="entry-detail" id="new&#40;request:HTTP::Request&#41;-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(request : HTTP::Request)
+
+        <a class="method-permalink" href="#new%28request%3AHTTP%3A%3ARequest%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/param_parser.cr#L13" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="body-instance-method">
+      <div class="signature">
+        
+        def <strong>body</strong>
+
+        <a class="method-permalink" href="#body-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/param_parser.cr#L30" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="files-instance-method">
+      <div class="signature">
+        
+        def <strong>files</strong>
+
+        <a class="method-permalink" href="#files-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/param_parser.cr#L11" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="json-instance-method">
+      <div class="signature">
+        
+        def <strong>json</strong>
+
+        <a class="method-permalink" href="#json-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/param_parser.cr#L30" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="query-instance-method">
+      <div class="signature">
+        
+        def <strong>query</strong>
+
+        <a class="method-permalink" href="#query-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/param_parser.cr#L30" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="url-instance-method">
+      <div class="signature">
+        
+        def <strong>url</strong>
+
+        <a class="method-permalink" href="#url-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/param_parser.cr#L30" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

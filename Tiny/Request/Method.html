@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/molovo/tiny">
+  <link href="../../css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../js/doc.js"></script>
+  <title>Tiny::Request::Method - github.com/molovo/tiny</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li><a href="../../index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class=" " data-id="github.com/molovo/tiny/toplevel" data-name="top level namespace">
+      <a href="../../toplevel.html">Top Level Namespace</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="github.com/molovo/tiny/Tiny" data-name="tiny">
+      <a href="../../Tiny.html">Tiny</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/molovo/tiny/Tiny/ParamParser" data-name="tiny::paramparser">
+      <a href="../../Tiny/ParamParser.html">ParamParser</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="github.com/molovo/tiny/Tiny/Request" data-name="tiny::request">
+      <a href="../../Tiny/Request.html">Request</a>
+      
+        <ul>
+  
+  <li class=" current" data-id="github.com/molovo/tiny/Tiny/Request/Method" data-name="tiny::request::method">
+      <a href="../../Tiny/Request/Method.html">Method</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/molovo/tiny/Tiny/Response" data-name="tiny::response">
+      <a href="../../Tiny/Response.html">Response</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/molovo/tiny/Tiny/Server" data-name="tiny::server">
+      <a href="../../Tiny/Server.html">Server</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1 class="type-name">
+
+  <span class="kind">enum</span> Tiny::Request::Method
+
+</h1>
+
+
+
+
+
+  <h2>Overview</h2>
+
+  <p>A enum containing valid HTTP request methods</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/request.cr#L19" target="_blank">tiny/request.cr</a>
+    
+    <br/>
+  
+
+
+
+  
+    <h2>Enum Members</h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="Get">
+        <strong>Get</strong> = <code><span class="n">0</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="Post">
+        <strong>Post</strong> = <code><span class="n">1</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="Put">
+        <strong>Put</strong> = <code><span class="n">2</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="Patch">
+        <strong>Patch</strong> = <code><span class="n">3</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="Delete">
+        <strong>Delete</strong> = <code><span class="n">4</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="Options">
+        <strong>Options</strong> = <code><span class="n">5</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="Head">
+        <strong>Head</strong> = <code><span class="n">6</span></code>
+      </dt>
+      
+    
+  </dl>
+
+
+
+
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#delete%3F-instance-method" class="signature"><strong>#delete?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get%3F-instance-method" class="signature"><strong>#get?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#head%3F-instance-method" class="signature"><strong>#head?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#options%3F-instance-method" class="signature"><strong>#options?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#patch%3F-instance-method" class="signature"><strong>#patch?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#post%3F-instance-method" class="signature"><strong>#post?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#put%3F-instance-method" class="signature"><strong>#put?</strong></a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="delete?-instance-method">
+      <div class="signature">
+        
+        def <strong>delete?</strong>
+
+        <a class="method-permalink" href="#delete%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/request.cr#L24" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="get?-instance-method">
+      <div class="signature">
+        
+        def <strong>get?</strong>
+
+        <a class="method-permalink" href="#get%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/request.cr#L20" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="head?-instance-method">
+      <div class="signature">
+        
+        def <strong>head?</strong>
+
+        <a class="method-permalink" href="#head%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/request.cr#L26" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="options?-instance-method">
+      <div class="signature">
+        
+        def <strong>options?</strong>
+
+        <a class="method-permalink" href="#options%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/request.cr#L25" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="patch?-instance-method">
+      <div class="signature">
+        
+        def <strong>patch?</strong>
+
+        <a class="method-permalink" href="#patch%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/request.cr#L23" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="post?-instance-method">
+      <div class="signature">
+        
+        def <strong>post?</strong>
+
+        <a class="method-permalink" href="#post%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/request.cr#L21" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="put?-instance-method">
+      <div class="signature">
+        
+        def <strong>put?</strong>
+
+        <a class="method-permalink" href="#put%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/molovo/tiny/blob/8ef252b6e29ef245b6fd4843d9c34ab3f2438a14/src/tiny/request.cr#L22" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/molovo/tiny">
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="js/doc.js"></script>
+  <title>README - github.com/molovo/tiny</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li class="current"><a href="index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class=" " data-id="github.com/molovo/tiny/toplevel" data-name="top level namespace">
+      <a href="toplevel.html">Top Level Namespace</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/molovo/tiny/Tiny" data-name="tiny">
+      <a href="Tiny.html">Tiny</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/molovo/tiny/Tiny/ParamParser" data-name="tiny::paramparser">
+      <a href="Tiny/ParamParser.html">ParamParser</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/molovo/tiny/Tiny/Request" data-name="tiny::request">
+      <a href="Tiny/Request.html">Request</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/molovo/tiny/Tiny/Request/Method" data-name="tiny::request::method">
+      <a href="Tiny/Request/Method.html">Method</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/molovo/tiny/Tiny/Response" data-name="tiny::response">
+      <a href="Tiny/Response.html">Response</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/molovo/tiny/Tiny/Server" data-name="tiny::server">
+      <a href="Tiny/Server.html">Server</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1>tiny</h1>
+
+<p>A simple wrapper around <a href="https://crystal-lang.org/api/0.22.0/HTTP/Server.html" target="_blank">HTTP::Server</a> for building CORS-enabled, multi-threaded HTTP micro-services in <a href="https://crystal-lang.org" target="_blank">Crystal</a>.</p>
+
+<h2>Installation</h2>
+
+<p>Add this to your application's <code>shard.yml</code>:</p>
+
+<pre><code class='language-yaml'>dependencies:
+  tiny:
+    github: molovo/tiny</code></pre>
+
+<h2>Usage</h2>
+
+<pre><code class='language-crystal'><span class="k">require</span> <span class="s">&quot;tiny&quot;</span>
+
+<span class="c"># Create the handler for incoming requests</span>
+serve <span class="k">do</span> <span class="o">|</span>request, response<span class="o">|</span>
+  <span class="c"># This block will only be run on GET requests</span>
+  request.get <span class="k">do</span>
+    response.json({
+      <span class="s">&quot;message&quot;</span>   => <span class="s">&quot;The server is up and running&quot;</span>,
+      <span class="s">&quot;timestamp&quot;</span> => <span class="t">Time</span>.now.to_s,
+    })
+  <span class="k">end</span>
+
+  <span class="c"># This block will only be run on POST requests</span>
+  request.post <span class="k">do</span>
+    <span class="c"># Do something awesome&#33;</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre>
+
+<h2>Contributing</h2>
+
+<ol><li>Fork it ( https://github.com/molovo/tiny/fork )</li><li>Create your feature branch (git checkout -b my-new-feature)</li><li>Commit your changes (git commit -am 'Add some feature')</li><li>Push to the branch (git push origin my-new-feature)</li><li>Create a new Pull Request</li></ol>
+
+<h2>Contributors</h2>
+
+<ul><li><a href="https://github.com/molovo" target="_blank">@molovo</a> James Dinsdale - creator, maintainer</li></ul>
+</div>
+</body>
+</html>
