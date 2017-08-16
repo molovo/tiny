@@ -16,7 +16,11 @@ module Tiny
   #       }
   #     end
   class Response
+    # The server context
     @context : HTTP::Server::Context
+
+    # A list of allowed headers for CORS purposes
+    getter allowed_headers = [] of String
 
     # Cascade missing methods down to the server response
     macro method_missing(call)
@@ -97,6 +101,12 @@ module Tiny
       }
     end
 
+    # Set the `Access-Control-Allow-Headers` header
+    def allow_header(header : String)
+      @allowed_headers << header
+      @context.response.headers["Access-Control-Allow-Headers"] = @allowed_headers.join(",")
+    end
+
     # Set the `Access-Control-Allow-Origin` header
     #
     #     response.allow_origin "example.com"
@@ -109,7 +119,7 @@ module Tiny
     #
     #     response.request_methods ["GET", "POST"]
     def request_methods(methods : Array(String))
-      @context.response.headers["Access-Control-Request-Method"] = methods.join(",")
+      @context.response.headers["Access-Control-Allow-Methods"] = methods.join(",")
     end
   end
 end

@@ -61,6 +61,25 @@ module Tiny
       response.request_methods allowed_methods.map { |method|
         method.to_s.upcase
       }
+
+      method = Request::Method.parse? request.method
+      if request.handlers.has_key? method || request.method == "OPTIONS"
+        if @@config["ALLOW_ORIGIN"] != "*"
+          if request.headers.has_key?("Origin") && request.headers["Origin"] != @@config["ALLOW_ORIGIN"]
+            return response.error 405, "Method Not Allowed"
+          end
+        end
+
+        if request.headers.has_key?("Access-Control-Request-Header")
+          allowed = response.allowed_headers.find do |header|
+            request.headers["Access-Control-Request-Header"] == header
+          end
+
+          if allowed.nil?
+            return response.error 405, "Header Not Allowed"
+          end
+        end
+      end
     end
 
     # Pass the request to the correct handler
@@ -85,7 +104,7 @@ module Tiny
 
     # Handle an incoming request
     private def handle(handler, request : Request, response : Response)
-      output = handler.call
+      return handler.call
     rescue ex
       # Handle uncaught exceptions, and return an error message
       message = ex.message

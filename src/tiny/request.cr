@@ -29,9 +29,11 @@ module Tiny
     # The server context for this request
     @context : HTTP::Server::Context
 
+    # The param parser for this request
+    @param_parser : ParamParser
+
     # The request parameters for this request
-    @params : HTTP::Params
-    getter :params
+    getter params = {} of String => ParamParser::AllParamTypes
 
     # A hash of HTTP request methods mapped to block handlers
     @handlers = {} of Method => -> Nil
@@ -44,17 +46,13 @@ module Tiny
 
     # Create the request object
     def initialize(@context : HTTP::Server::Context)
-      @params = HTTP::Params.parse(@context.request.query || "")
+      @param_parser = ParamParser.new @context.request
 
-      if body = @context.request.body
-        params = HTTP::Params.parse body.to_s
-        pp params
-        params.each do |name, value|
-          @params[name] = value
+      {% for method in %w(query body json) %}
+        @param_parser.{{method.id}}.each do |key, value|
+          @params[key] = value
         end
-      end
-
-      pp params
+      {% end %}
     end
 
     # Specify a block to handle GET requests
